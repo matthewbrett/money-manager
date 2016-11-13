@@ -1,26 +1,58 @@
-<div>
+<div class="mx-2">
     <h2>Tax calculator</h2>
-    <ul>
-        <li>Income:<input [(ngModel)]="income" (change)="calculateTax()" value="0"/></li>
-        <li>Tax: {{tax | currency:'NZD':true}}</li>
-        <li>Net income: {{(income - tax) | currency:'NZD':true}}</li>
+    <ul class="list-unstyled">
+        <li><span class="col-sm-6 text-left">Income:</span><span class="col-sm-6"><input [(ngModel)]="income" (change)="calculateTax()" /></span></li>
+        <li><span class="col-sm-6 text-left">Tax:</span><span class="col-sm-6">{{tax | currency:'NZD':true}}</span></li>
+        <li><span class="col-sm-6 text-left">Net income:</span><span class="col-sm-6">{{(income - tax) | currency:'NZD':true}}</span></li>
     </ul>
     <button (click)="calculateTax()">Calculate</button>
+
+    <div>
+        <h3>Tax breakdown</h3>
+        <table>
+            <thead>
+            <tr>
+                <th class="col-sm-6 text-left">Tax Band</th>
+                <th class="col-sm-6 text-center">Tax</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let breakdown of taxBreakdowns">
+                <td>{{breakdown.taxBand.start}} - {{breakdown.taxBand.end}}</td>
+                <td class="text-right">{{breakdown.taxPayable | currency:'NZD':true}}</td>
+            </tr>
+            </tbody>
+        
+            <tfoot>
+                <tr>
+                    <td>
+                        Total tax
+                    </td>
+                    <td class="text-right">
+                        {{tax | number:'.2'}}
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
     <div>
         <h3>Tax bands</h3>
         <table>
-            <tr>
-                <td>Start</td>
-                <td>End</td>
-                <td>Rate</td>
-            </tr>
-            
-            <tr *ngFor="let taxBand of taxBands">
-                <td>{{taxBand.start}}</td>
-                <td>{{taxBand.end}}</td>
-                <td>{{taxBand.rate}}</td>
-
-            </tr>
+            <thead>
+                <tr>
+                    <th class="col-sm-4">Start</th>
+                    <th class="col-sm-4">End</th>
+                    <th class="col-sm-4">Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let taxBand of taxBands">
+                    <td>{{taxBand.start}}</td>
+                    <td>{{taxBand.end}}</td>
+                    <td>{{taxBand.rate | percent:'.2'}}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </div>
