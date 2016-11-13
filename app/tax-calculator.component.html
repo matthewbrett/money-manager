@@ -1,0 +1,26 @@
+<div>
+    <h2>Tax calculator</h2>
+    <ul>
+        <li>Income:<input [(ngModel)]="income" (change)="calculateTax()" value="0"/></li>
+        <li>Tax: {{tax | currency:'NZD':true}}</li>
+        <li>Net income: {{(income - tax) | currency:'NZD':true}}</li>
+    </ul>
+    <button (click)="calculateTax()">Calculate</button>
+    <div>
+        <h3>Tax bands</h3>
+        <table>
+            <tr>
+                <td>Start</td>
+                <td>End</td>
+                <td>Rate</td>
+            </tr>
+            
+            <tr *ngFor="let taxBand of taxBands">
+                <td>{{taxBand.start}}</td>
+                <td>{{taxBand.end}}</td>
+                <td>{{taxBand.rate}}</td>
+
+            </tr>
+        </table>
+    </div>
+</div>
