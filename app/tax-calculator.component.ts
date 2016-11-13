@@ -11,6 +11,15 @@ class TaxBand {
     }
 }
 
+class TaxBreakdown{
+    constructor(band: TaxBand, payable: number){
+        this.taxBand = band;
+        this.taxPayable = payable;
+    }
+    taxBand: TaxBand;
+    taxPayable: number;
+}
+
 @Component({
     selector: 'tax-calculator',
     templateUrl: './app/tax-calculator.component.html'
@@ -20,19 +29,27 @@ export class TaxCalculator implements OnChanges {
     tax: number = 0;
     calculateTax(){
         var runningTax = 0;
+        var breakdowns = new Array<TaxBreakdown>();
         var inc = this.income;
         for(var i = 0; i < this.taxBands.length; i++){
             var taxBand = this.taxBands[i];
-
+            
+            var taxToPay = 0;
             if(taxBand.end != null && inc > taxBand.end){
-                runningTax += (taxBand.end -taxBand.start) * taxBand.rate;
+                taxToPay += (taxBand.end - taxBand.start) * taxBand.rate;
             } else {
-                runningTax += (inc - taxBand.start) * taxBand.rate;
-                break;
+                taxToPay += inc > taxBand.start
+                    ? (inc - taxBand.start) * taxBand.rate 
+                    : 0;
             }
+            breakdowns.push(new TaxBreakdown(taxBand, taxToPay));
+
+            runningTax += taxToPay;
         }
         this.tax = runningTax;
+        this.taxBreakdowns = breakdowns;
     };
+    taxBreakdowns: TaxBreakdown[];
     taxBands = [
         new TaxBand(0, 14000, 0.105),
         new TaxBand(14001, 48000, 0.175),
