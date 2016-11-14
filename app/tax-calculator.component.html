@@ -1,36 +1,40 @@
 <div>
     <h2>Tax calculator</h2>
     <div class="container">
-        <div class="width:100px">
-            <h5>Income:</h5>
-            <input [(ngModel)]="income" (change)="calculateTax()" class="text-right" />
+        <div class="col-xs-6 mr">
+            <h3>Basic information</h3>
+            <div class="width:100px">
+                <h5>Income:</h5>
+                <input [(ngModel)]="income" (keyup)="calculateTax()" class="text-right" />
+            </div>
+            <div class="width:100px">
+                <h5>Tax:</h5>
+                <span class="text-right">{{tax | currency:'NZD':true}}</span>
+            </div>
+            <div class="width:100px">
+                <h5>Net income:</h5>
+                {{(income - tax) | currency:'NZD':true}}
+            </div>
+            <button (click)="calculateTax()">Calculate</button>
         </div>
-        <div class="width:100px">
-            <h5>Tax:</h5>
-            <span class="text-right">{{tax | currency:'NZD':true}}</span>
-        </div>
-        <div class="width:100px">
-            <h5>Net income:</h5>
-            {{(income - tax) | currency:'NZD':true}}
-        </div>
-        <button (click)="calculateTax()">Calculate</button>
-    </div>
-    
-    <hr/>
-    <div class="container">
+        <div class="col-xs-6">
+            <h3>Stats</h3>
+             <div class="container">
         <div>
             <h3>Tax breakdown</h3>
             <table>
                 <thead>
                 <tr>
-                    <th class="col-xs-6 text-left">Tax Band</th>
-                    <th class="col-xs-6 text-center">Tax</th>
+                    <th class="col-xs-4 text-left">Tax Band</th>
+                    <th class="col-xs-4 text-center">Tax</th>
+                    <th class="col-xs-2 text-center">%</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr *ngFor="let breakdown of taxBreakdowns">
                     <td>{{breakdown.taxBand.start}} - {{breakdown.taxBand.end}}</td>
                     <td class="text-right">{{breakdown.taxPayable | mycurrency}}</td>
+                    <td class="text-right">{{(breakdown.taxPayable/income) | percent:'.2-2'}}</td>
                 </tr>
                 </tbody>
             
@@ -41,6 +45,9 @@
                         </td>
                         <td class="text-right">
                             {{tax | mycurrency}}
+                        </td>
+                        <td class="text-right">
+                            {{(tax/income) | percent:'.2-2'}}
                         </td>
                     </tr>
                 </tfoot>
@@ -67,4 +74,11 @@
             </table>
         </div>
     </div>
+        </div>
+    </div>
+
+    
+    
+    <hr/>
+   
 </div>

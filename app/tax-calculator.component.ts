@@ -1,16 +1,6 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
-import { CurrencyFormatter} from './mm-currency-formatter.pipe'
-
-class TaxBand {
-    start: number = 0;
-    end: number = 0;
-    rate: number = 0;
-    constructor(start: number, end: number, rate: number) {
-        this.start = start;
-        this.end = end;
-        this.rate = rate;
-    }
-}
+import { Component } from '@angular/core';
+import { TaxCalculatorService } from './tax-calculator.service';
+import { TaxBand } from './models/taxBand';
 
 class TaxBreakdown{
     constructor(band: TaxBand, payable: number){
@@ -25,8 +15,9 @@ class TaxBreakdown{
     selector: 'tax-calculator',
     templateUrl: './app/tax-calculator.component.html'
 })
-export class TaxCalculator implements OnChanges {
-    constructor(){
+export class TaxCalculator {
+    constructor(private taxCalculatorService: TaxCalculatorService){
+        this.taxBands = taxCalculatorService.getTaxBands();
         this.calculateTax();
     }
 
@@ -55,14 +46,5 @@ export class TaxCalculator implements OnChanges {
         this.taxBreakdowns = breakdowns;
     };
     taxBreakdowns: TaxBreakdown[];
-    taxBands = [
-        new TaxBand(0, 14000, 0.105),
-        new TaxBand(14001, 48000, 0.175),
-        new TaxBand(48001, 70000, 0.30),
-        new TaxBand(70001, null, 0.33)
-    ];
-     ngOnChanges(changes: SimpleChanges) {
-      console.log(changes);
-  }
+    taxBands: TaxBand[];
 }
-
