@@ -1,41 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TaxCalculatorService } from './tax-calculator.service';
 import { TaxBand } from './models/tax-band';
 import { TaxBreakdown } from './models/tax-breakdown';
+import { TaxCalculation } from './models/tax-calculation';
 
 @Component({
     selector: 'tax-calculator',
     templateUrl: './app/tax-calculator.component.html'
 })
-export class TaxCalculator {
-    constructor(private taxCalculatorService: TaxCalculatorService){
-        this.taxBands = taxCalculatorService.getTaxBands();
+export class TaxCalculator implements OnInit {
+    constructor(private taxCalculatorService: TaxCalculatorService){}
+    income: number;
+    tax: number;;
+
+    ngOnInit() {
+        this.income = 75000;
+        this.tax = 0;
+        this.taxBands = this.taxCalculatorService.getTaxBands();
         this.calculateTax();
     }
 
-    income: number = 80000;
-    tax: number = 0;
     calculateTax(){
-        var runningTax = 0;
-        var breakdowns = new Array<TaxBreakdown>();
-        var inc = this.income;
-        for(var i = 0; i < this.taxBands.length; i++){
-            var taxBand = this.taxBands[i];
-            
-            var taxToPay = 0;
-            if(taxBand.end != null && inc > taxBand.end){
-                taxToPay += (taxBand.end - taxBand.start) * taxBand.rate;
-            } else {
-                taxToPay += inc > taxBand.start
-                    ? (inc - taxBand.start) * taxBand.rate 
-                    : 0;
-            }
-            breakdowns.push(new TaxBreakdown(taxBand, taxToPay));
-
-            runningTax += taxToPay;
-        }
-        this.tax = runningTax;
-        this.taxBreakdowns = breakdowns;
+        var taxCalculations: TaxCalculation = this.taxCalculatorService.calculateTax(this.income);
+        this.tax = taxCalculations.tax;
+        this.taxBreakdowns = taxCalculations.taxBreakdowns;
     };
     taxBreakdowns: TaxBreakdown[];
     taxBands: TaxBand[];
