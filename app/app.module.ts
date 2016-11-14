@@ -6,13 +6,15 @@ import { AppComponent }  from './app.component';
 import { TaxCalculator } from './tax-calculator.component'
 import { CurrencyFormatter} from './mm-currency-formatter.pipe'
 import { LOCALE_ID } from '@angular/core';
+import { TaxCalculatorService } from './tax-calculator.service';
 
 @NgModule({
   imports: [ BrowserModule, FormsModule ],
   declarations: [ AppComponent, TaxCalculator, CurrencyFormatter ],
   bootstrap: [ AppComponent ],
   providers: [
-    {provide: LOCALE_ID, useValue: "en-NZ"}
+    {provide: LOCALE_ID, useValue: "en-NZ"},
+    TaxCalculatorService
   ]
 })
 export class AppModule { }
