@@ -1,4 +1,5 @@
 import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { CurrencyFormatter} from './mm-currency-formatter.pipe'
 
 class TaxBand {
     start: number = 0;
@@ -25,7 +26,11 @@ class TaxBreakdown{
     templateUrl: './app/tax-calculator.component.html'
 })
 export class TaxCalculator implements OnChanges {
-    income: number = 0;
+    constructor(){
+        this.calculateTax();
+    }
+
+    income: number = 80000;
     tax: number = 0;
     calculateTax(){
         var runningTax = 0;
