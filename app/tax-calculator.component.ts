@@ -1,15 +1,7 @@
 import { Component } from '@angular/core';
 import { TaxCalculatorService } from './tax-calculator.service';
-import { TaxBand } from './models/taxBand';
-
-class TaxBreakdown{
-    constructor(band: TaxBand, payable: number){
-        this.taxBand = band;
-        this.taxPayable = payable;
-    }
-    taxBand: TaxBand;
-    taxPayable: number;
-}
+import { TaxBand } from './models/tax-band';
+import { TaxBreakdown } from './models/tax-breakdown';
 
 @Component({
     selector: 'tax-calculator',
