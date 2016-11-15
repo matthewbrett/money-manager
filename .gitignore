@@ -2,6 +2,7 @@ typings
 **/app/**/*.js
 **/app/**/*.map
 node_modules
+**/app/data
 jspm_packages
 bower_components
 
