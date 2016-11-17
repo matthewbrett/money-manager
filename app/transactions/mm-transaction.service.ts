@@ -2,10 +2,12 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
 export class Transaction{
+    id: number;
     date: Date;
     payee: string;
     amount: number;
-    constructor(date: Date, payee: string, amount: number){
+    constructor(id: number, date: Date, payee: string, amount: number){
+        this.id = id;
         this.date = date;
         this.payee = payee;
         this.amount = amount;
@@ -23,7 +25,13 @@ export class TransactionService{
     };
 
     private mapTransactions(response: Response) : Transaction[]{
+        var i = 1;
         return response.json()
-            .map(t => new Transaction(t.Date, t.Payee, t.Amount));
+            .map(t => function(){
+                var id = i;
+                var transaction: Transaction = new Transaction(id, t.Date, t.Payee, t.Amount);
+                i++;
+                return transaction;
+            }());
     }
 }
