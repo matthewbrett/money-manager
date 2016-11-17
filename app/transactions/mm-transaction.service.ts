@@ -24,6 +24,19 @@ export class TransactionService{
         return source.map(this.mapTransactions);
     };
 
+    getTransaction(id: number) {
+        var transactions = this.getTransactions();
+
+        var transaction = transactions
+            .map(
+                ts => ts.find(
+                    t => t.id === id
+                    )
+            );
+
+        return transaction;
+    }
+
     private mapTransactions(response: Response) : Transaction[]{
         var i = 1;
         return response.json()
