@@ -1,6 +1,6 @@
 <div>
     <h3>Some Detail</h3>
-    <ul>
+    <ul *ngIf="transaction">
             <li>Date: {{transaction.date}}</li>
             <li>Payee: {{transaction.payee}}</li>
             <li>Amount: {{transaction.amount}}</li>

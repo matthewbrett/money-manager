@@ -9,17 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class TransactionDetail implements OnInit {
     transaction: Transaction;
 
-    constructor(private route: ActivatedRoute, private transactionService:TransactionService) {
-
-    }
+    constructor(private route: ActivatedRoute, private transactionService:TransactionService) {}
 
     ngOnInit(){
-        var id: number = this.route.snapshot.params['id'];
-        this.transaction = new Transaction(1, new Date(), "payee", 5.5);
-        console.log("ID selected: " + id);
-        // this.transactionService.getTransaction(+id)
-        //     .subscribe(
-        //         (transaction: Transaction) => console.log(transaction)
-        //     );
+        var id: number = +this.route.snapshot.params['id'];
+        this.transactionService.getTransaction(id)
+            .subscribe((transaction: Transaction) => this.transaction = transaction);
     }
 }
