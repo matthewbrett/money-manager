@@ -4,7 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'mm-transaction-detail',
-    templateUrl: './app/transactions/mm-transaction-detail.component.html'
+    templateUrl: './app/transactions/mm-transaction-detail.component.html',
+    styleUrls: ['./app/transactions/mm-transaction-detail.component.css']
 })
 export class TransactionDetail implements OnInit {
     transaction: Transaction;

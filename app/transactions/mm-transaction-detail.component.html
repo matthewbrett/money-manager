@@ -1,16 +1,18 @@
 <div>
     <h3>Some Detail</h3>
-    <ul *ngIf="transaction">
-            <li>Date: {{transaction.date}}</li>
-            <li>Payee: {{transaction.payee}}</li>
-            <li>Amount: {{transaction.amount}}</li>
-        </ul>
-    <!--<div>
+    <div *ngIf="transaction">
+        <dl>
+            <dt class="col-xs-3">Date:</dt>
+            <dd class="col-xs-9">{{transaction.date}}</dd>
+            <dt class="col-xs-3">Payee:</dt>
+            <dd class="col-xs-9">{{transaction.payee}}</dd>
+            <dt class="col-xs-3">Amount:</dt>
+            <dd class="col-xs-9">{{transaction.amount}}</dd>
+        </dl>
+    </div>
+    <!--<hr style="border-style:solid none; border-width:1px;"/>
+    <div>
         Show transaction detail.
         {{transaction | json}}
-       
-        
-        <hr/>
-
     </div>-->
 </div>
