@@ -19,7 +19,8 @@ export class TransactionService{
     constructor(private http: Http){}
     getTransactions() {
         var source = this.http
-            .get('app/data/cc-platinum2014-2016.json');
+            .get('http://localhost:3004/transactions');
+           // .get('app/data/cc-platinum2014-2016.json');
 
         return source.map(this.mapTransactions);
     };
@@ -29,9 +30,7 @@ export class TransactionService{
 
         var transaction = transactions
             .map(
-                ts => ts.find(
-                    t => t.id === id
-                    )
+                ts => ts.find(t => t.id === id)
             );
 
         return transaction;
