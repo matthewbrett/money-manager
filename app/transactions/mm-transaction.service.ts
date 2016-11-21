@@ -17,16 +17,21 @@ export class Transaction{
 @Injectable()
 export class TransactionService{
     constructor(private http: Http){}
-    getTransactions() {
+    getTransactions(filter: (transaction: Transaction) => boolean) {
         var source = this.http
             .get('http://localhost:3004/transactions');
-           // .get('app/data/cc-platinum2014-2016.json');
 
-        return source.map(this.mapTransactions);
+        var mapped  = source
+            .map(this.mapTransactions);
+        var filtered = mapped
+            .map(transactions => transactions
+                .filter(filter ? filter : t => true));
+
+        return filtered; 
     };
 
     getTransaction(id: number) {
-        var transactions = this.getTransactions();
+        var transactions = this.getTransactions(null);
 
         var transaction = transactions
             .map(
@@ -39,7 +44,7 @@ export class TransactionService{
     private mapTransactions(response: Response) : Transaction[]{
         var i = 1;
         return response.json()
-            .map(t => function(){
+            .map((t: any) => function(){
                 var id = i;
                 var transaction: Transaction = new Transaction(id, t.Date, t.Payee, t.Amount);
                 i++;

@@ -9,12 +9,20 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TransactionDetail implements OnInit {
     transaction: Transaction;
+    relatedTransactions: Transaction[];
 
-    constructor(private route: ActivatedRoute, private transactionService:TransactionService) {}
+    constructor(private route: ActivatedRoute, private transactionService: TransactionService) {}
 
     ngOnInit(){
         var id: number = +this.route.snapshot.params['id'];
+        var tService = this.transactionService;
         this.transactionService.getTransaction(id)
-            .subscribe((transaction: Transaction) => this.transaction = transaction);
+            .subscribe((t: Transaction) => this.setupTransaction(t, tService));
+    }
+
+    private setupTransaction(trans: Transaction, tService: TransactionService){
+        this.transaction = trans;
+        tService.getTransactions((t: Transaction) => t.payee == trans.payee )
+            .subscribe((transactions: Transaction[]) => this.relatedTransactions = transactions);
     }
 }
