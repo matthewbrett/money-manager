@@ -11,8 +11,6 @@
         </dl>
     </div>
     <hr style="border-style:solid none; border-width:1px;"/>
-    <div>
-        Related Transactions
-        {{relatedTransactions | json}}
-    </div>
+   
+    <mm-transactions [ts]="relatedTransactions"></mm-transactions>
 </div>
