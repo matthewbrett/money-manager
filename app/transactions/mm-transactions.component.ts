@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Transaction, TransactionService } from './mm-transaction.service';
+import { TransactionService } from './mm-transaction.service';
+import { Transaction } from '../models/transaction';
 
 @Component({
     selector: 'mm-transactions',

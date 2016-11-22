@@ -1,18 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Transaction } from '../models/transaction';
 
-export class Transaction{
-    id: number;
-    date: Date;
-    payee: string;
-    amount: number;
-    constructor(id: number, date: Date, payee: string, amount: number){
-        this.id = id;
-        this.date = date;
-        this.payee = payee;
-        this.amount = amount;
-    }
-}
 
 @Injectable()
 export class TransactionService{
