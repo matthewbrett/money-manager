@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { TaxCalculator } from './tax-calculator.component';
+import { TaxCalculator } from './calculators/tax-calculator.component';
 import { Transactions } from './transactions/mm-transactions.component';
 import { TransactionDetail } from './transactions/mm-transaction-detail.component';
 

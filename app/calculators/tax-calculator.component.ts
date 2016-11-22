@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TaxCalculatorService } from './tax-calculator.service';
-import { TaxBand } from './models/tax-band';
-import { TaxBreakdown } from './models/tax-breakdown';
-import { TaxCalculation } from './models/tax-calculation';
+import { TaxBand } from '../models/tax-band';
+import { TaxBreakdown } from '../models/tax-breakdown';
+import { TaxCalculation } from '../models/tax-calculation';
 
 @Component({
     selector: 'tax-calculator',
-    templateUrl: './app/tax-calculator.component.html'
+    templateUrl: './app/calculators/tax-calculator.component.html'
 })
 export class TaxCalculator implements OnInit {
     constructor(private taxCalculatorService: TaxCalculatorService){}

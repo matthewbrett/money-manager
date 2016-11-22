@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { TaxBand } from './models/tax-band';
-import { TaxBreakdown } from './models/tax-breakdown';
-import { TaxCalculation } from './models/tax-calculation';
+import { TaxBand } from '../models/tax-band';
+import { TaxBreakdown } from '../models/tax-breakdown';
+import { TaxCalculation } from '../models/tax-calculation';
 
 @Injectable()
 export class TaxCalculatorService {
