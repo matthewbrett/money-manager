@@ -1,7 +1,3 @@
 <div><h3>Show transactions</h3></div>
 
-<ul *ngFor="let transaction of transactions">
-    <li>{{transaction.date}} - 
-        <a [routerLink]="['/transactions', transaction.id]" href="">{{transaction.payee}}</a>: {{transaction.amount | mycurrency}}
-    </li>
-</ul>
+ <mm-transactions-list [transactions]="transactions"></mm-transactions-list>

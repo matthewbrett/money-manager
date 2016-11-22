@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TransactionService } from './mm-transaction.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Transaction } from '../models/transaction';
+import { TransactionsList } from './mm-transactions-list.component'
 
 @Component({
     selector: 'mm-transaction-detail',

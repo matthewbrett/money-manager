@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Transaction } from '../models/transaction';
 
-
 @Injectable()
 export class TransactionService{
     constructor(private http: Http){}

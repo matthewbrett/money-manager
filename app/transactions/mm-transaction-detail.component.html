@@ -10,7 +10,9 @@
             <dd class="col-xs-9">{{transaction.amount}}</dd>
         </dl>
     </div>
-    <hr style="border-style:solid none; border-width:1px;"/>
-   
-    <mm-transactions [ts]="relatedTransactions"></mm-transactions>
+    
+    <div>
+        <br />
+        <mm-transactions-list [transactions]="relatedTransactions"></mm-transactions-list>
+    </div>
 </div>
