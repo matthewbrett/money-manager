@@ -31,12 +31,23 @@ export class TransactionService{
 
     private mapTransactions(response: Response) : Transaction[]{
         var i = 1;
+        var parseDate = TransactionService.prototype.parseDate;
         return response.json()
             .map((t: any) => function(){
                 var id = i;
-                var transaction: Transaction = new Transaction(id, t.Date, t.Payee, t.Amount);
+                var date: Date = parseDate(t.Date);
+                var transaction: Transaction = new Transaction(id, date, t.Payee, t.Amount);
                 i++;
                 return transaction;
             }());
+    }
+
+    parseDate(dateString: string){
+        var dateParts:any[] = dateString.split("/");
+        var year = dateParts[2].length == 2
+            ? '20' + dateParts[2]
+            : dateParts[2];
+
+        return new Date(year , dateParts[1] - 1, dateParts[0]); // month is 0-based
     }
 }

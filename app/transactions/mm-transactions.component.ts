@@ -11,10 +11,10 @@ export class Transactions implements OnInit {
     constructor(private transactionService: TransactionService){}
 
     ngOnInit(){
-        var filter: (transaction: Transaction) => boolean = (transaction:Transaction) => transaction.amount > 0;
+        var filter: (transaction: Transaction) => boolean = (transaction:Transaction) => (transaction.date > new Date('2016-01-01');
         this.transactions = [];
         
-        this.transactionService.getTransactions(null)
-            .subscribe(transactions => this.transactions = transactions);
+        this.transactionService.getTransactions(filter)
+            .subscribe(transactions => this.setTransactions(this.transactions = transactions));
     }
 }
