@@ -1,5 +1,5 @@
 <ul *ngFor="let transaction of transactions">
-    <li>{{transaction.date}} - 
+    <li>{{transaction.date | date:'mediumDate'}} - 
         <a [routerLink]="['/transactions', transaction.id]" href="">{{transaction.payee}}</a>: {{transaction.amount | mycurrency}}
     </li>
 </ul>

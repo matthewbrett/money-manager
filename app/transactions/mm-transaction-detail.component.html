@@ -3,7 +3,7 @@
     <div *ngIf="transaction">
         <dl>
             <dt class="col-xs-3">Date:</dt>
-            <dd class="col-xs-9">{{transaction.date}}</dd>
+            <dd class="col-xs-9">{{transaction.date | date:'mediumDate'}}</dd>
             <dt class="col-xs-3">Payee:</dt>
             <dd class="col-xs-9">{{transaction.payee}}</dd>
             <dt class="col-xs-3">Amount:</dt>
