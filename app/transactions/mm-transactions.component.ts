@@ -12,7 +12,8 @@ export class Transactions implements OnInit {
     constructor(private transactionService: TransactionService){}
 
     ngOnInit(){
-        var filter: (transaction: Transaction) => boolean = (transaction:Transaction) => (transaction.date > new Date('2016-01-01');
+        var filter: (transaction: Transaction) => boolean = (transaction:Transaction) => 
+            (transaction.date > new Date('2016-01-01') && transaction.amount < 0);
         this.transactions = [];
         
         this.transactionService.getTransactions(filter)
