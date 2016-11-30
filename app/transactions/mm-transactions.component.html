@@ -1,5 +1,17 @@
 <div><h3>Show transactions</h3></div>
-
+<div>
+    <h4>Filters</h4>
+    <div>
+        <div>
+            <label>From Date:</label>
+            <input type="date" [(ngModel)]="fromDate"/>
+        </div>
+        <div>
+            <label>To Date:</label>
+            <input type="date" [(ngModel)]="toDate"/>
+        </div>
+    </div>
+</div>
 <div>
     Total: {{ total | number:'1.2-2'}}
 </div>
