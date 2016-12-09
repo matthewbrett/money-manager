@@ -9,17 +9,23 @@ import { Transaction } from '../models/transaction';
 export class Transactions implements OnInit {
     transactions: Transaction[];
     total: number;
-    fromDate: date;
-    toDate: date;
-    constructor(private transactionService: TransactionService){
-        this.fromDate = new Date('2016-01-01');
-    }
+    fromDate: string;
+    toDate: string;
+    constructor(private transactionService: TransactionService){}
 
     ngOnInit(){
-        var filter: (transaction: Transaction) => boolean = (transaction:Transaction) => 
-            (transaction.date > this.fromDate && transaction.amount < 0);
         this.transactions = [];
-        
+        this.fromDate = '2016-01-01';
+        this.toDate = '2016-11-11'
+        this.filter();
+    }
+
+    filter(){
+        var filter: (transaction: Transaction) => boolean = (transaction:Transaction) => 
+            (transaction.date > new Date(this.fromDate) 
+                && transaction.date < new Date(this.toDate) 
+                && transaction.amount < 0);
+
         this.transactionService.getTransactions(filter)
             .subscribe(transactions => this.setupTransactions(transactions));
     }
