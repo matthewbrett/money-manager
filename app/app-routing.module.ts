@@ -4,10 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { TaxCalculator } from './calculators/tax-calculator.component';
 import { Transactions } from './transactions/mm-transactions.component';
 import { TransactionDetail } from './transactions/mm-transaction-detail.component';
+import { CsvConverter } from './utilities/csv-converter.component';
 
 const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'tax-calculator' },
     { path: 'tax-calculator', component: TaxCalculator },
+    { path: 'csv-converter', component: CsvConverter },
     { path: 'transactions', component: Transactions },
     { path: 'transactions/:id', component: TransactionDetail }
 ];
@@ -21,6 +23,7 @@ export class AppRoutingModule {}
 export const routableComponents = [
     TaxCalculator,
     Transactions,
-    TransactionDetail
+    TransactionDetail,
+    CsvConverter
 ];
 
