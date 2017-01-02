@@ -27,13 +27,20 @@ export class CsvConverter implements OnInit {
 
     var headers=lines[0].split(",");
 
+// debugger;
     for(var i=1;i<lines.length;i++){
 
         var obj = {};
         var currentline=lines[i].split(",");
 
         for(var j=0;j<headers.length;j++){
-            obj[headers[j]] = currentline[j];
+            var destinationField: any;
+            if(isNaN(+currentline[j])) {
+                destinationField = currentline[j];
+            } else {
+                destinationField = Number(currentline[j]);
+            }
+            obj[headers[j]] = destinationField;
         }
 
         result.push(obj);
