@@ -32,7 +32,8 @@ export class TransactionService{
     private mapTransactions(response: Response) : Transaction[]{
         var i = 1;
         var parseDate = TransactionService.prototype.parseDate;
-        return response.json()
+
+        var transactions = response.json()
             .map((t: any) => function(){
                 var id = i;
                 var date: Date = parseDate(t.Date);
@@ -40,14 +41,20 @@ export class TransactionService{
                 i++;
                 return transaction;
             }());
+
+        console.log(transactions);
+        return transactions;
     }
 
     parseDate(dateString: string){
-        var dateParts:any[] = dateString.split("/");
-        var year = dateParts[2].length == 2
-            ? '20' + dateParts[2]
-            : dateParts[2];
+        var d = new Date(dateString);
+        // var dateParts:any[] = dateString.split("/");
+        // var year = dateParts[2].length == 2
+        //     ? '20' + dateParts[2]
+        //     : dateParts[2];
 
-        return new Date(year , dateParts[1] - 1, dateParts[0]); // month is 0-based
+        //return new Date(year , dateParts[1] - 1, dateParts[0]); // month is 0-based
+
+        return d;
     }
 }
