@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TransactionService } from './mm-transaction.service';
 import { Transaction } from '../models/transaction';
-
+import * as moment from 'moment';
 
 @Component({
     selector: 'mm-transactions',
@@ -10,14 +10,16 @@ import { Transaction } from '../models/transaction';
 export class Transactions implements OnInit {
     transactions: Transaction[];
     total: number;
+    count: number;
     fromDate: string;
     toDate: string;
     constructor(private transactionService: TransactionService){}
 
     ngOnInit(){
+        let now: Date = new Date();
         this.transactions = [];
-        this.fromDate = '2016-01-01';
-        this.toDate = '2016-11-11'
+        this.fromDate = moment(now).subtract(30,"days").format('YYYY-MM-DD');
+        this.toDate = moment(now).format('YYYY-MM-DD');
         this.filter();
     }
 
@@ -33,11 +35,12 @@ export class Transactions implements OnInit {
 
     setupTransactions(transactions:Transaction[]){
         this.transactions = transactions
-            .sort((t1, t2) => +t1.date - +t2.date);
+            .sort((t1, t2) => +t2.date - +t1.date);
         var total = 0;
         total = this.transactions.reduce(function(data:number, transaction:Transaction){
             return data + transaction.amount;
         }, 0);
         this.total = total;
+        this.count = this.transactions.length;
     }
 }

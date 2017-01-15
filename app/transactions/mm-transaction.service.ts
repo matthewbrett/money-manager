@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Transaction } from '../models/transaction';
 import { DateFormatPipe } from '../../node_modules/angular2-moment/date-format.pipe';
 import moment = require('moment');
+
 @Injectable()
 export class TransactionService{
     constructor(
@@ -93,6 +94,7 @@ export class TransactionService{
         }
 
         let returnVal: string = date[2] + '-' + date[1] + '-' + date[0];
+        console.log('Input: ' + str + '-' + 'Output: ' + returnVal);
         return returnVal;
     }
 }
