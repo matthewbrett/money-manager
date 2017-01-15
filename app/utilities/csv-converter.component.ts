@@ -156,7 +156,11 @@ export class CsvConverter implements OnInit {
             for(var j=0;j<headers.length;j++){
                 var destinationField: any;
                 if(isNaN(+currentline[j])) {
-                    destinationField = currentline[j];
+                    if ( headers[j] === "Date" ) {
+                        destinationField = this.parseDate(currentline[j], "")
+                    } else{
+                        destinationField = currentline[j];
+                    }
                 } else {
                     destinationField = Number(currentline[j]);
                 }
