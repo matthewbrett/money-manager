@@ -48,21 +48,6 @@ export class TransactionService{
         return transactions;
     }
 
-    // parseDate(dateString: string){
-    //     var dateFormatPipe = new DateFormatPipe();
-    //     var date = moment(dateString).format('DD-MM-YYYY');
-    //     var d = new Date(dateString);
-    //     // var dateParts:any[] = dateString.split("/");
-    //     // var year = dateParts[2].length == 2
-    //     //     ? '20' + dateParts[2]
-    //     //     : dateParts[2];
-
-    //     //return new Date(year , dateParts[1] - 1, dateParts[0]); // month is 0-based
-
-    //     return date;
-
-    // }
-
     parseDate(str: string, format: string) {
         var date: any = str.replace(' ', '').split(/[^0-9]/);
 
@@ -93,7 +78,7 @@ export class TransactionService{
         }
 
         let returnVal: string = date[2] + '-' + date[1] + '-' + date[0];
-        console.log('Input: ' + str + '-' + 'Output: ' + returnVal);
+
         return returnVal;
     }
 }
