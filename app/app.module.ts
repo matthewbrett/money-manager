@@ -11,7 +11,6 @@ import { TaxCalculatorService } from './calculators/tax-calculator.service';
 import { TransactionService } from './transactions/mm-transaction.service';
 import { TransactionsList } from './transactions/mm-transactions-list.component';
 import { AppRoutingModule, routableComponents } from './app-routing.module'
-import * from 'moment';
 
 @NgModule({
   imports: [ 

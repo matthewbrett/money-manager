@@ -6,10 +6,9 @@ import { Transaction } from '../models/transaction';
     templateUrl: './app/transactions/mm-transactions-list.component.html'
 })
 export class TransactionsList implements OnInit {
-    constructor() { }
-
     @Input()
     transactions: Transaction[];
+    constructor() { }
     
     ngOnInit() {
         this.transactions = [];

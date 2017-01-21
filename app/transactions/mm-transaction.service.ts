@@ -45,7 +45,6 @@ export class TransactionService{
                 return transaction;
             }());
 
-        //console.log(transactions);
         return transactions;
     }
 
