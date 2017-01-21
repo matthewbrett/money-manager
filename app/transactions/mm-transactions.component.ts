@@ -36,12 +36,5 @@ export class Transactions implements OnInit {
     setupTransactions(transactions:Transaction[]){
         this.transactions = transactions
             .sort((t1, t2) => +t2.date - +t1.date);
-        var total = 0;
-
-        total = this.transactions.reduce(function(data:number, transaction:Transaction){
-            return data + transaction.amount;
-        }, 0);
-        this.total = total;
-        this.count = this.transactions.length;
     }
 }

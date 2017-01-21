@@ -1,9 +1,14 @@
-<ul *ngFor="let transaction of transactions" class="list-unstyled">
-    <li class="container">
-        <div class="col-md-3 col-sm-3">{{transaction.date | date:'mediumDate'}}</div>
-        <div class="col-md-6 col-sm-6">
-        <a [routerLink]="['/transactions', transaction.id]" href="">{{transaction.payee}}</a>:
-        </div>
-        <div class="col-md-3 col-sm-3 text-right">{{transaction.amount | mycurrency}}</div>
-    </li>
-</ul>
+<div>
+    <p>
+        Total: {{ total | number:'1.2-2'}} from {{ count }} transactions.
+    </p>
+    <ul class="list-unstyled">
+        <li class="container" *ngFor="let transaction of transactions">
+            <div class="col-md-3 col-sm-3">{{transaction.date | date:'mediumDate'}}</div>
+            <div class="col-md-6 col-sm-6">
+            <a [routerLink]="['/transactions', transaction.id]" href="">{{transaction.payee}}</a>:
+            </div>
+            <div class="col-md-3 col-sm-3 text-right">{{transaction.amount | mycurrency}}</div>
+        </li>
+    </ul>
+</div>

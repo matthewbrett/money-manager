@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Transaction } from '../models/transaction';
-import { DateFormatPipe } from '../../node_modules/angular2-moment/date-format.pipe';
-import moment = require('moment');
 
 @Injectable()
 export class TransactionService{
