@@ -9,10 +9,9 @@ import * as moment from 'moment';
 })
 export class Transactions implements OnInit {
     transactions: Transaction[];
-    total: number;
-    count: number;
     fromDate: string;
     toDate: string;
+    description: string;
     constructor(private transactionService: TransactionService){}
 
     ngOnInit(){
@@ -24,8 +23,16 @@ export class Transactions implements OnInit {
     }
 
     filter(){
+        let transactionHasDescriptionOrEmpty = (transaction: Transaction, description: string) => {
+            let hasPayee = transaction.payee != null;
+
+            return (description == null || description == "")
+                || (hasPayee && transaction.payee.toLocaleLowerCase().includes(description.toLocaleLowerCase()));
+        };
+
         var filter: (transaction: Transaction) => boolean = (transaction:Transaction) => 
-            (transaction.date > new Date(this.fromDate) 
+            ( transactionHasDescriptionOrEmpty(transaction, this.description )
+                && transaction.date > new Date(this.fromDate)
                 && transaction.date < new Date(this.toDate) 
                 && transaction.amount < 0);
 
