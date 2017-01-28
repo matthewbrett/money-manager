@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
     selector: 'mm-checkbox-container',
     template: `
     <div>
-        <label>{{label}}</label>
+        <label *ngIf="label">{{label}}</label>
         <ng-content></ng-content>
     
     </div>
