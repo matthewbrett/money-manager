@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d731f81f-2df8-4108-9fa1-efb7813c88cd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.module.ts" afterPath="$PROJECT_DIR$/app/app.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/shared/shared.module.ts" afterPath="$PROJECT_DIR$/app/shared/shared.module.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/calculators/tax-calculator.component.html" afterPath="$PROJECT_DIR$/app/calculators/tax-calculator.component.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ui/checkbox-container.component.ts" afterPath="$PROJECT_DIR$/app/ui/checkbox-container.component.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -23,14 +21,26 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="checkbox-container.component.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="checkbox-container.component.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/ui/checkbox-container.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+            <state relative-caret-position="345">
+              <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
               <folding>
-                <marker date="1485589367000" expanded="true" signature="127:224" ph="..." />
+                <element signature="e#0#139#0" expanded="true" />
+                <marker date="1485675866000" expanded="true" signature="278:386" ph="..." />
+                <marker date="1485675866000" expanded="true" signature="279:375" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="di.d.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/@angular/core/src/metadata/di.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1565">
+              <caret line="216" column="20" lean-forward="false" selection-start-line="216" selection-start-column="20" selection-end-line="216" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -60,14 +70,14 @@
       <file leaf-file-name="tax-calculator.component.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/calculators/tax-calculator.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="55" column="31" lean-forward="false" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="54" />
+            <state relative-caret-position="301">
+              <caret line="56" column="39" lean-forward="false" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.module.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/app.module.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="268">
@@ -116,9 +126,9 @@
         <option value="$PROJECT_DIR$/app/transactions/mm-transaction-detail.component.ts" />
         <option value="$PROJECT_DIR$/app/calculators/tax-calculator.component.ts" />
         <option value="$PROJECT_DIR$/app/shared/shared.module.ts" />
-        <option value="$PROJECT_DIR$/app/ui/checkbox-container.component.ts" />
-        <option value="$PROJECT_DIR$/app/calculators/tax-calculator.component.html" />
         <option value="$PROJECT_DIR$/app/app.module.ts" />
+        <option value="$PROJECT_DIR$/app/calculators/tax-calculator.component.html" />
+        <option value="$PROJECT_DIR$/app/ui/checkbox-container.component.ts" />
       </list>
     </option>
   </component>
@@ -443,12 +453,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1484789023202</updated>
-      <workItem from="1484789026023" duration="10106000" />
+      <workItem from="1484789026023" duration="15056000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10106000" />
+    <option name="totallyTimeSpent" value="15056000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="97" width="1223" height="737" extended-state="0" />
@@ -748,30 +758,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ui/checkbox-container.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="9" lean-forward="false" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
-          <folding>
-            <marker date="1485589367000" expanded="true" signature="127:224" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/calculators/tax-calculator.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="55" column="31" lean-forward="false" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/@angular/core/src/metadata/di.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1565">
+          <caret line="216" column="20" lean-forward="false" selection-start-line="216" selection-start-column="20" selection-end-line="216" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/calculators/tax-calculator.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="56" column="39" lean-forward="false" selection-start-line="56" selection-start-column="39" selection-end-line="56" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ui/checkbox-container.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#139#0" expanded="true" />
+            <marker date="1485675866000" expanded="true" signature="278:386" ph="..." />
+            <marker date="1485675866000" expanded="true" signature="279:375" ph="..." />
           </folding>
         </state>
       </provider>
