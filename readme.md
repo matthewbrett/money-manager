@@ -1,3 +1,4 @@
+XXXX
 1) Open a command prompt in the project's root directory (APM)
 
 2) Type: `npm install`
